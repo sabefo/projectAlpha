@@ -127,37 +127,13 @@ public class game extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cb0ActionPerformed
 
-    private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {                                    
-        // TODO add your handling code here:
-    }
-
-    private void cb2ActionPerformed(java.awt.event.ActionEvent evt) {                                    
-        // TODO add your handling code here:
-    }
-
     private void cb3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb3ActionPerformed
 
-    private void cb4ActionPerformed(java.awt.event.ActionEvent evt) {                                    
-        // TODO add your handling code here:
-    }
-
-    private void cb5ActionPerformed(java.awt.event.ActionEvent evt) {                                    
-        // TODO add your handling code here:
-    }
-
     private void cb6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb6ActionPerformed
-
-    private void cb7ActionPerformed(java.awt.event.ActionEvent evt) {                                    
-        // TODO add your handling code here:
-    }
-
-    private void cb8ActionPerformed(java.awt.event.ActionEvent evt) {                                    
-        // TODO add your handling code here:
-    }
 
     /**
      * @param args the command line arguments
