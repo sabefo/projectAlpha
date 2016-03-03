@@ -5,8 +5,11 @@
  */
 package proyectoAlpha;
 
+import com.sun.webkit.UIClient;
 import java.net.*;
 import java.io.*;
+import org.jcp.xml.dsig.internal.dom.Utils;
+//import utils.Utils;
 
 /**
  *
@@ -14,6 +17,10 @@ import java.io.*;
  */
 public class game extends javax.swing.JFrame {
 
+    private static final Class CLASE = UIClient.class;
+    private static final int IMG_WIDTH = 150, IMG_HEIGHT = 150;
+//    private static final javax.swing.Icon incono_rocko = Utils.getImage(CLASE, "Delete.png", IMG_WIDTH, IMG_HEIGHT);
+    
     /**
      * Creates new form game
      */
