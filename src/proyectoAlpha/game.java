@@ -27,50 +27,50 @@ public class game extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
+        cb0 = new javax.swing.JCheckBox();
+        cb3 = new javax.swing.JCheckBox();
+        cb6 = new javax.swing.JCheckBox();
+        cb1 = new javax.swing.JCheckBox();
+        cb4 = new javax.swing.JCheckBox();
+        cb7 = new javax.swing.JCheckBox();
+        cb2 = new javax.swing.JCheckBox();
+        cb5 = new javax.swing.JCheckBox();
+        cb8 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jCheckBox1.setText("(0,0)");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cb0.setText("(0,0)");
+        cb0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cb0ActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("(1,0)");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        cb3.setText("(1,0)");
+        cb3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                cb3ActionPerformed(evt);
             }
         });
 
-        jCheckBox3.setText("(2,0)");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        cb6.setText("(2,0)");
+        cb6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                cb6ActionPerformed(evt);
             }
         });
 
-        jCheckBox4.setText("(0,1)");
+        cb1.setText("(0,1)");
 
-        jCheckBox5.setText("(1,1)");
+        cb4.setText("(1,1)");
 
-        jCheckBox6.setText("(2,1)");
+        cb7.setText("(2,1)");
 
-        jCheckBox7.setText("(0,2)");
+        cb2.setText("(0,2)");
 
-        jCheckBox8.setText("(1,2)");
+        cb5.setText("(1,2)");
 
-        jCheckBox9.setText("(2,2)");
+        cb8.setText("(2,2)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,23 +80,23 @@ public class game extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox3)
+                        .addComponent(cb6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox6)
+                        .addComponent(cb7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox9))
+                        .addComponent(cb8))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox2)
+                        .addComponent(cb3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox5)
+                        .addComponent(cb4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox8))
+                        .addComponent(cb5))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox1)
+                        .addComponent(cb0)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox4)
+                        .addComponent(cb1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox7)))
+                        .addComponent(cb2)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -104,36 +104,60 @@ public class game extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox7))
+                    .addComponent(cb0)
+                    .addComponent(cb1)
+                    .addComponent(cb2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox8))
+                    .addComponent(cb3)
+                    .addComponent(cb4)
+                    .addComponent(cb5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox9))
+                    .addComponent(cb6)
+                    .addComponent(cb7)
+                    .addComponent(cb8))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void cb0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb0ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_cb0ActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {                                    
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+    private void cb2ActionPerformed(java.awt.event.ActionEvent evt) {                                    
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    }
+
+    private void cb3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb3ActionPerformed
+
+    private void cb4ActionPerformed(java.awt.event.ActionEvent evt) {                                    
+        // TODO add your handling code here:
+    }
+
+    private void cb5ActionPerformed(java.awt.event.ActionEvent evt) {                                    
+        // TODO add your handling code here:
+    }
+
+    private void cb6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb6ActionPerformed
+
+    private void cb7ActionPerformed(java.awt.event.ActionEvent evt) {                                    
+        // TODO add your handling code here:
+    }
+
+    private void cb8ActionPerformed(java.awt.event.ActionEvent evt) {                                    
+        // TODO add your handling code here:
+    }
 
     /**
      * @param args the command line arguments
@@ -171,14 +195,14 @@ public class game extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
+    private javax.swing.JCheckBox cb0;
+    private javax.swing.JCheckBox cb1;
+    private javax.swing.JCheckBox cb2;
+    private javax.swing.JCheckBox cb3;
+    private javax.swing.JCheckBox cb4;
+    private javax.swing.JCheckBox cb5;
+    private javax.swing.JCheckBox cb6;
+    private javax.swing.JCheckBox cb7;
+    private javax.swing.JCheckBox cb8;
     // End of variables declaration//GEN-END:variables
 }
