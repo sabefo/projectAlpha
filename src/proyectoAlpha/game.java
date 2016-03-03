@@ -5,6 +5,9 @@
  */
 package proyectoAlpha;
 
+import java.net.*;
+import java.io.*;
+
 /**
  *
  * @author Santiago
@@ -61,16 +64,46 @@ public class game extends javax.swing.JFrame {
         });
 
         cb1.setText("(0,1)");
+        cb1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb1ActionPerformed(evt);
+            }
+        });
 
         cb4.setText("(1,1)");
+        cb4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb4ActionPerformed(evt);
+            }
+        });
 
         cb7.setText("(2,1)");
+        cb7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb7ActionPerformed(evt);
+            }
+        });
 
         cb2.setText("(0,2)");
+        cb2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb2ActionPerformed(evt);
+            }
+        });
 
         cb5.setText("(1,2)");
+        cb5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb5ActionPerformed(evt);
+            }
+        });
 
         cb8.setText("(2,2)");
+        cb8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,17 +156,82 @@ public class game extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void send(javax.swing.JCheckBox cb){
+                Socket s = null;
+        try {
+            int serverPort = 7896;
+
+            s = new Socket("localhost", serverPort);    
+         //   s = new Socket("127.0.0.1", serverPort);    
+            DataInputStream in = new DataInputStream( s.getInputStream());
+            DataOutputStream out =
+                    new DataOutputStream(s.getOutputStream());
+            out.writeUTF(cb.getText());        	// UTF is a string encoding 
+
+            String data = in.readUTF();
+            System.out.println("Received: "+ data) ;
+        } catch (UnknownHostException e) {
+            System.out.println("Sock:"+e.getMessage());
+	} catch (EOFException e) {
+            System.out.println("EOF:"+e.getMessage());
+    	} catch (IOException e) {
+            System.out.println("IO:"+e.getMessage());
+        } finally {
+            if(s!=null) {
+                try {
+                    s.close();
+                } catch (IOException e){
+                    System.out.println("close:"+e.getMessage());
+                }
+            }
+        }
+    }
+    
+    
     private void cb0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb0ActionPerformed
         // TODO add your handling code here:
+        send(cb0);
     }//GEN-LAST:event_cb0ActionPerformed
 
     private void cb3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb3ActionPerformed
         // TODO add your handling code here:
+        send(cb3);
     }//GEN-LAST:event_cb3ActionPerformed
 
     private void cb6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb6ActionPerformed
         // TODO add your handling code here:
+        send(cb6);
     }//GEN-LAST:event_cb6ActionPerformed
+
+    private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
+        // TODO add your handling code here:
+        send(cb1);
+    }//GEN-LAST:event_cb1ActionPerformed
+
+    private void cb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb2ActionPerformed
+        // TODO add your handling code here:
+        send(cb2);
+    }//GEN-LAST:event_cb2ActionPerformed
+
+    private void cb4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb4ActionPerformed
+        // TODO add your handling code here:
+        send(cb4);
+    }//GEN-LAST:event_cb4ActionPerformed
+
+    private void cb5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb5ActionPerformed
+        // TODO add your handling code here:
+        send(cb5);
+    }//GEN-LAST:event_cb5ActionPerformed
+
+    private void cb7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb7ActionPerformed
+        // TODO add your handling code here:
+        send(cb7);
+    }//GEN-LAST:event_cb7ActionPerformed
+
+    private void cb8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb8ActionPerformed
+        // TODO add your handling code here:
+        send(cb8);
+    }//GEN-LAST:event_cb8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,6 +259,35 @@ public class game extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(game.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        Socket s = null;
+        try {
+            int serverPort = 7896;
+
+            s = new Socket("localhost", serverPort);    
+         //   s = new Socket("127.0.0.1", serverPort);    
+            DataInputStream in = new DataInputStream( s.getInputStream());
+            DataOutputStream out =
+                    new DataOutputStream(s.getOutputStream());
+            out.writeUTF("Hello");        	// UTF is a string encoding 
+
+            String data = in.readUTF();
+            System.out.println("Received: "+ data) ;
+        } catch (UnknownHostException e) {
+            System.out.println("Sock:"+e.getMessage());
+	} catch (EOFException e) {
+            System.out.println("EOF:"+e.getMessage());
+    	} catch (IOException e) {
+            System.out.println("IO:"+e.getMessage());
+        } finally {
+            if(s!=null) {
+                try {
+                    s.close();
+                } catch (IOException e){
+                    System.out.println("close:"+e.getMessage());
+                }
+            }
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
