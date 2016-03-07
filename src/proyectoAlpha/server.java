@@ -12,10 +12,49 @@ package proyectoAlpha;
 
 import java.net.*;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
+import java.util.Date;
 
 public class server {
     
-        public static void main (String args[]) {
+    public static void main (String args[]) {
+        //MULTICAST PARA MANDAR MONSTRUO
+        MulticastSocket s =null;
+   	try {
+            InetAddress group = InetAddress.getByName("228.13.11.91"); // destination multicast group 
+            s = new MulticastSocket(6789);
+            while(true){
+                s.joinGroup(group); 
+                s.setTimeToLive(10);
+                //System.out.println("Messages' TTL (Time-To-Live): "+ s.getTimeToLive());
+                Date hora = new Date();
+                String myMessage=hora.toString();
+                byte [] m = myMessage.getBytes();
+                DatagramPacket messageOut = 
+                        new DatagramPacket(m, m.length, group, 6789);
+                s.send(messageOut);
+                System.out.println("Se envió la hora: "+myMessage);
+                s.leaveGroup(group);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(MulticastSenderPeer.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+                //
+ 	} catch (SocketException e){
+            System.out.println("Socket: " + e.getMessage());
+	} catch (IOException e){
+            System.out.println("IO: " + e.getMessage());
+        } finally {
+            if(s != null) s.close();
+        }
+        
+        //TCP ESCUCHA QUIEN PEGO
 	try{
             int serverPort = 7896;
             ServerSocket listenSocket = new ServerSocket(serverPort);
@@ -40,7 +79,7 @@ class Connection extends Thread {
             clientSocket = aClientSocket;
             in = new DataInputStream(clientSocket.getInputStream());
             out =new DataOutputStream(clientSocket.getOutputStream());
-         } catch(IOException e)  {System.out.println("Connection:"+e.getMessage());}
+        } catch(IOException e)  {System.out.println("Connection:"+e.getMessage());}
     }
         
     @Override

@@ -20,42 +20,36 @@ import java.util.logging.Logger;
  * @author JGUTIERRGARC
  */
 public class MulticastSenderPeer {
-    	public static void main(String args[]){ 
-  	 
-	MulticastSocket s =null;
-   	 try {
-             InetAddress group = InetAddress.getByName("228.13.11.91"); // destination multicast group 
-             s = new MulticastSocket(6789);
-                while(true){
-                
-	    	
-	   	s.joinGroup(group); 
+    public static void main(String args[]){ 
+  	MulticastSocket s =null;
+   	try {
+            InetAddress group = InetAddress.getByName("228.13.11.91"); // destination multicast group 
+            s = new MulticastSocket(6789);
+            while(true){
+                s.joinGroup(group); 
                 s.setTimeToLive(10);
                 //System.out.println("Messages' TTL (Time-To-Live): "+ s.getTimeToLive());
                 Date hora = new Date();
                 String myMessage=hora.toString();
                 byte [] m = myMessage.getBytes();
-	    	DatagramPacket messageOut = 
-			new DatagramPacket(m, m.length, group, 6789);
-	    	s.send(messageOut);
-                    System.out.println("Se envió la hora: "+myMessage);
-                    s.leaveGroup(group);
-                 try {
-                     Thread.sleep(1000);
-                 } catch (InterruptedException ex) {
-                     Logger.getLogger(MulticastSenderPeer.class.getName()).log(Level.SEVERE, null, ex);
-                 }
-                
+                DatagramPacket messageOut = 
+                        new DatagramPacket(m, m.length, group, 6789);
+                s.send(messageOut);
+                System.out.println("Se envió la hora: "+myMessage);
+                s.leaveGroup(group);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(MulticastSenderPeer.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
+            }
                 //
- 	    }
-         catch (SocketException e){
-             System.out.println("Socket: " + e.getMessage());
-	 }
-         catch (IOException e){
-             System.out.println("IO: " + e.getMessage());
-         }
-	 finally {
+ 	} catch (SocketException e){
+            System.out.println("Socket: " + e.getMessage());
+	} catch (IOException e){
+            System.out.println("IO: " + e.getMessage());
+        } finally {
             if(s != null) s.close();
         }
     }		     

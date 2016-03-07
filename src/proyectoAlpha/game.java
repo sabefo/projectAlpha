@@ -276,7 +276,7 @@ public class game extends javax.swing.JFrame {
             DataInputStream in = new DataInputStream( s.getInputStream());
             DataOutputStream out =
                     new DataOutputStream(s.getOutputStream());
-            out.writeUTF("Hello");        	// UTF is a string encoding 
+//            out.writeUTF("Hello");        	// UTF is a string encoding 
 
             String data = in.readUTF();
             System.out.println("Received: "+ data) ;
