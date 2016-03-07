@@ -22,16 +22,19 @@ public class server {
     
     public static void main (String args[]) {
         //MULTICAST PARA MANDAR MONSTRUO
-        MulticastSocket s =null;
+        MulticastSocket s = null;
    	try {
             InetAddress group = InetAddress.getByName("228.13.11.91"); // destination multicast group 
             s = new MulticastSocket(6789);
-            while(true){
-                s.joinGroup(group); 
+            System.out.println(s.toString());
+            while(true) {
+                s.joinGroup(group);
+                System.out.println("entramos al grupo");
                 s.setTimeToLive(10);
                 //System.out.println("Messages' TTL (Time-To-Live): "+ s.getTimeToLive());
                 Date hora = new Date();
-                String myMessage=hora.toString();
+                String myMessage = hora.toString();
+                System.out.println("La hora esta en string");
                 byte [] m = myMessage.getBytes();
                 DatagramPacket messageOut = 
                         new DatagramPacket(m, m.length, group, 6789);
