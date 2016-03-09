@@ -24,13 +24,12 @@ public class server {
         //MULTICAST PARA MANDAR MONSTRUO
         MulticastSocket s = null;
    	try {
-            InetAddress group = InetAddress.getByName("228.13.11.91"); // destination multicast group 
+            InetAddress group = InetAddress.getByName("228.5.6.7"); // destination multicast group 
             s = new MulticastSocket(6789);
             while(true) {
                 s.joinGroup(group);
                 s.setTimeToLive(10);
                 //System.out.println("Messages' TTL (Time-To-Live): "+ s.getTimeToLive());
-                Date hora = new Date();
                 String myMessage = "estamos enviando desde el servidor";
                 byte [] m = myMessage.getBytes();
                 DatagramPacket messageOut = 

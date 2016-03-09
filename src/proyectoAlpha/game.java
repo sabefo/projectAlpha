@@ -5,6 +5,7 @@
  */
 package proyectoAlpha;
 
+import com.sun.nio.sctp.MessageInfo;
 import com.sun.webkit.UIClient;
 import java.net.*;
 import java.io.*;
@@ -164,7 +165,7 @@ public class game extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void send(javax.swing.JCheckBox cb){
-                Socket s = null;
+        Socket s = null;
         try {
             int serverPort = 7896;
 
@@ -243,7 +244,7 @@ public class game extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws UnknownHostException, IOException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -266,7 +267,27 @@ public class game extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(game.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //MULTICAST
+        MulticastSocket ms = null;
+        try {
+            InetAddress group = InetAddress.getByName("228.5.6.7");
+            ms = new MulticastSocket(6789);
+            ms.joinGroup(group);
+            byte[] buffer = new byte[1000];
+            for (int i = 0; i < 3; i++) {
+                System.out.println("Esperando mensajes en el juego");
+                DatagramPacket messageIn = 
+                        new DatagramPacket(buffer, buffer.length);
+                ms.receive(messageIn);
+                System.out.println("Mensaje recibido: " + 
+                        new String (messageIn.getData()));
+                System.out.println("Sender es: " + messageIn.getAddress());
+            }
+        } catch(SocketException e) {
+            System.out.println("Socket: " + e.getMessage());
+        }       
         
+        //TCP
         Socket s = null;
         try {
             int serverPort = 7896;
@@ -279,19 +300,19 @@ public class game extends javax.swing.JFrame {
 //            out.writeUTF("Hello");        	// UTF is a string encoding 
 
             String data = in.readUTF();
-            System.out.println("Received: "+ data) ;
+            System.out.println("Received: " + data) ;
         } catch (UnknownHostException e) {
-            System.out.println("Sock:"+e.getMessage());
+            System.out.println("Sock:" + e.getMessage());
 	} catch (EOFException e) {
-            System.out.println("EOF:"+e.getMessage());
+            System.out.println("EOF:" + e.getMessage());
     	} catch (IOException e) {
-            System.out.println("IO:"+e.getMessage());
+            System.out.println("IO:" + e.getMessage());
         } finally {
             if(s!=null) {
                 try {
                     s.close();
                 } catch (IOException e){
-                    System.out.println("close:"+e.getMessage());
+                    System.out.println("close: " + e.getMessage());
                 }
             }
         }
