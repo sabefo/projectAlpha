@@ -26,20 +26,17 @@ public class server {
    	try {
             InetAddress group = InetAddress.getByName("228.13.11.91"); // destination multicast group 
             s = new MulticastSocket(6789);
-            System.out.println(s.toString());
             while(true) {
                 s.joinGroup(group);
-                System.out.println("entramos al grupo");
                 s.setTimeToLive(10);
                 //System.out.println("Messages' TTL (Time-To-Live): "+ s.getTimeToLive());
                 Date hora = new Date();
-                String myMessage = hora.toString();
-                System.out.println("La hora esta en string");
+                String myMessage = "estamos enviando desde el servidor";
                 byte [] m = myMessage.getBytes();
                 DatagramPacket messageOut = 
                         new DatagramPacket(m, m.length, group, 6789);
                 s.send(messageOut);
-                System.out.println("Se envió la hora: "+myMessage);
+                System.out.println("mensaje: " + myMessage);
                 s.leaveGroup(group);
                 try {
                     Thread.sleep(1000);
